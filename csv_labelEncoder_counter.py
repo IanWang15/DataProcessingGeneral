@@ -25,6 +25,34 @@ def main():
     print(format(Counter(Y)))
     print(format(Counter(y)))
 
+    
+    
+def loaddat(filename):
+# another method to load csv
+
+# initializing the titles and rows list
+    fields = []
+    var = []
+
+    # reading csv file
+    with open(filename, 'r') as csvfile:
+        # creating a csv reader object
+        csvreader = csv.reader(csvfile)
+
+        # extracting field names through first row
+        fields = next(csvreader)
+
+        # extracting each data row one by one
+        for row in csvreader:
+            var.append(row)
+
+        # get total number of rows
+#        print("Total no. of rows: %d"%(csvreader.line_num))
+#    printing the field names
+#    print('Field names are:' + ', '.join(field for field in fields))
+    var0 = np.array(var).astype(float)
+    return var0
+    
 if __name__=="__main__":
     main()
     
